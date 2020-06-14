@@ -1,0 +1,4 @@
+/* 将样式表导入 gatsby-browser.js 中 */
+html {
+  background-color: lavenderblush;
+}
