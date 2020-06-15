@@ -13,7 +13,19 @@ module.exports = {
   },
   /* Your site config here */
   plugins: [
+    // 数据源插件
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `src`,
+        path: `${__dirname}/src/`,
+      },
+    },
+    // Markdown 文件的数据转换插件
+    `gatsby-transformer-remark`,
+    // css-in-js
     `gatsby-plugin-emotion`,
+    // typography排版
     {
       resolve: `gatsby-plugin-typography`,
       options: {
