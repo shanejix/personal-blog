@@ -4,8 +4,6 @@
 import React from "react"
 import styles from "./about-css-modules.module.css"
 
-// console.log(styles)
-
 const User = props => (
   <div className={styles.user}>
     <img src={props.avatar} className={styles.avatar} alt="" />

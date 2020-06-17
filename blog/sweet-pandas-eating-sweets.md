@@ -1,13 +1,16 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
-import { css } from "@emotion/core"
-import { rhythm } from "../utils/typography"
-import Layout from "../components/layout"
+---
+title: "Sweet Pandas Eating Sweets"
+date: "2017-08-10"
+---
 
-export default ({ data }) => {
-  console.log('blog-data:',data)
-  return (
-    <Layout>
+Pandas are really sweet.
+
+Here's a video of a panda eating sweets.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/4n0xNbfJLR8" frameborder="0" allowfullscreen></iframe>
+
+```js
+<Layout>
       <div>
         <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
         {data.allMarkdownRemark.edges.map(({ node }) => (
@@ -39,26 +42,4 @@ export default ({ data }) => {
         ))}
       </div>
     </Layout>
-  )
-}
-
-export const query = graphql`
-  query {
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-      totalCount
-      edges {
-        node {
-          id
-          frontmatter {
-            title
-            date(formatString: "DD MMMM, YYYY")
-          }
-          fields {
-            slug
-          }
-          excerpt
-        }
-      }
-    }
-  }
-`
+```

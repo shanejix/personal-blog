@@ -42,12 +42,59 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `src`,
-        path: `${__dirname}/src/`,
+        name: `blog`,
+        path: `${__dirname}/blog`,
       },
     },
     // Markdown 文件的数据转换插件
-    `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        // CommonMark mode (default: true)
+        commonmark: true,
+        // Footnotes mode (default: true)
+        footnotes: true,
+        // Pedantic mode (default: true)
+        pedantic: true,
+        // GitHub Flavored Markdown mode (default: true)
+        gfm: true,
+        // Plugins configs
+        plugins: [
+          // to compress images and add responsive images with
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              // It's important to specify the maxWidth (in pixels) of
+              // the content container as this plugin uses this as the
+              // base for generating different widths of each image.
+              maxWidth: 590,
+            },
+          },
+          // Wraps iframes or objects (e.g. embedded YouTube videos) 
+          // within markdown files 
+          // in a responsive elastic container with a fixed aspect ratio
+          {
+            resolve: `gatsby-remark-responsive-iframe`,
+            options: {
+              wrapperStyle: `margin-bottom: 1.0725rem`,
+            },
+          },
+          // Adds syntax highlighting to code blocks in markdown files using PrismJS.
+          `gatsby-remark-prismjs`,
+          // Copies local files linked to/from Markdown 
+          `gatsby-remark-copy-linked-files`,
+          // Replaces “dumb” punctuation marks with “smart” punctuation marks using the retext-smartypants plugin.
+          `gatsby-remark-smartypants`,
+        ],
+      },
+    },
+    // Creates ImageSharp nodes from image types that are supported by the Sharp image
+    // processing library and provides fields in their GraphQL types for processing your images
+    // in a variety of ways including resizing, cropping, and creating responsive images.
+    // https://image-processing.gatsbyjs.org/
+    `gatsby-transformer-sharp`,
+    // https://www.gatsbyjs.cn/packages/gatsby-plugin-sharp/?=gatsby-plugin-sharp
+    `gatsby-plugin-sharp`,
     // css-in-js
     `gatsby-plugin-emotion`,
     // typography排版
