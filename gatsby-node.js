@@ -1,7 +1,8 @@
-// 每当创建新节点（或更新）时，Gatsby 都会调用 onCreateNode 函数。
+/**
+ * 每当创建新节点（或更新）时，Gatsby 都会调用 onCreateNode 函数。
+ */
 
 const path = require(`path`)
-
 // gatsby-source-filesystem 插件附带了创建 slug 的功能
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
@@ -29,26 +30,68 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
+  // blog分页模板
+  const postsPagination = path.resolve("./src/templates/postsPagination.js")
+  // blogPost模板
+  const blogPost = path.resolve(`./src/templates/blogPost.js`)
+
   // **Note:** The graphql function call returns a Promise
   // see: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise for more info
   const result = await graphql(`
-    query {
-      allMarkdownRemark {
+    {
+      allMarkdownRemark(
+        sort: { fields: [frontmatter___date], order: DESC }
+        limit: 1000
+      ) {
+        group(field: frontmatter___tags) {
+          fieldValue
+          totalCount
+        }
         edges {
           node {
             fields {
               slug
+            }
+            frontmatter {
+              title
+              tags
             }
           }
         }
       }
     }
   `)
-  console.log('result',JSON.stringify(result, null, 4))
+
+  if (result.errors) {
+    throw result.errors
+  }
+
+  console.log("result", JSON.stringify(result, null, 4))
+
+  const posts = result.data.allMarkdownRemark.edges
+
+  // create posts pagination
+  const postsPerPage = 7
+  const numPages = Math.ceil(posts.length / postsPerPage)
+
+  Array.from({ length: numPages }).forEach((ele, i) => {
+    createPage({
+      path: i === 0 ? `/posts` : `/posts/${i + 1}`,
+      component: postsPagination,
+      context: {
+        currentPage: i + 1,
+        totalPage: numPages,
+        limit: postsPerPage,
+        skip: i * postsPerPage,
+      },
+    })
+  })
+
+  // Create blog posts pages.
   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
     createPage({
       path: node.fields.slug,
-      component: path.resolve(`./src/templates/blog-post.js`),
+      component: blogPost,
       context: {
         // Data passed to context is available
         // in page queries as GraphQL variables.
