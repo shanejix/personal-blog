@@ -68,6 +68,7 @@ export default ({ children }) => {
         >
           <ListLink to="/">Home</ListLink>
           <ListLink to="/posts">posts</ListLink>
+          <ListLink to="/tags">tags</ListLink>
           <ListLink to="/wiki">wiki</ListLink>
           <ListLink to="/about/">About</ListLink>
           <ListLink to="/contact/">Contact</ListLink>

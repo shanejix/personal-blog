@@ -34,6 +34,8 @@ exports.createPages = async ({ graphql, actions }) => {
   const postsPagination = path.resolve("./src/templates/postsPagination.js")
   // blogPost模板
   const blogPost = path.resolve(`./src/templates/blogPost.js`)
+  // blog tags 模板
+  const blogTags = path.resolve("./src/templates/blogTags.js")
 
   // **Note:** The graphql function call returns a Promise
   // see: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise for more info
@@ -68,6 +70,9 @@ exports.createPages = async ({ graphql, actions }) => {
 
   console.log("result", JSON.stringify(result, null, 4))
 
+  // all tags
+  const tags = result.data.allMarkdownRemark.group
+  // all posts
   const posts = result.data.allMarkdownRemark.edges
 
   // create posts pagination
@@ -87,7 +92,29 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
-  // Create blog posts pages.
+  // create blog tags pages
+  tags.forEach(tag => {
+    const total = tag.totalCount
+    const numPages = Math.ceil(total / postsPerPage)
+    Array.from({ length: numPages }).forEach((_, i) => {
+      createPage({
+        path:
+          i === 0
+            ? `/tags/${tag.fieldValue}`
+            : `/tags${tag.fieldValue}/${i + 1}`,
+        component: blogTags,
+        context: {
+          tag: tag.fieldValue,
+          currentPage: i + 1,
+          totalPage: numPages,
+          limit: postsPerPage,
+          skip: i * postsPerPage,
+        },
+      })
+    })
+  })
+
+  // create blog posts pages.
   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
     createPage({
       path: node.fields.slug,
