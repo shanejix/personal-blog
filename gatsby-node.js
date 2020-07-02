@@ -101,7 +101,7 @@ exports.createPages = async ({ graphql, actions }) => {
         path:
           i === 0
             ? `/tags/${tag.fieldValue}`
-            : `/tags${tag.fieldValue}/${i + 1}`,
+            : `/tags/${tag.fieldValue}/${i + 1}`,
         component: blogTags,
         context: {
           tag: tag.fieldValue,
