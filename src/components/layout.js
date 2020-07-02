@@ -67,9 +67,16 @@ export default ({ children }) => {
           `}
         >
           <ListLink to="/">Home</ListLink>
-          <ListLink to="/posts">posts</ListLink>
-          <ListLink to="/tags">tags</ListLink>
-          <ListLink to="/wiki">wiki</ListLink>
+          <ListLink to="/posts">Posts</ListLink>
+          <ListLink to="/tags">Tags</ListLink>
+          <ListLink to="https://knowledge-bases.netlify.app/">wiki</ListLink>
+          {/* <a
+            href="https://knowledge-bases.netlify.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Wiki
+          </a> */}
           <ListLink to="/about/">About</ListLink>
           <ListLink to="/contact/">Contact</ListLink>
         </ul>
