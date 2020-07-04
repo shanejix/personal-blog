@@ -3,7 +3,7 @@
  *  在这里，文件的命名很重请查看 文档:https://www.gatsbyjs.cn/docs/browser-apis/
  */
 
-// import "./src/styles/global.css"
+import "./src/styles/global.css"
 // 或者:
 // require('./src/styles/global.css')
 
