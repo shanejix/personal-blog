@@ -38,7 +38,9 @@ export default ({ children }) => {
       css={css`
         margin: 3rem auto;
         padding: 2.625rem ${rhythm(3 / 4)};
-        width: 800px;
+        width: 40%;
+        min-width: 640px;
+        max-width: 960px;
       `}
     >
       <header style={{ marginBottom: `1.5rem` }}>
