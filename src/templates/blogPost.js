@@ -1,10 +1,15 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import { rhythm, scale } from "../utils/typography"
 
-export default ({ data }) => {
+export default ({ data, pageContext, location }) => {
   const post = data.markdownRemark
+  const { previous, next } = pageContext
+
+  console.log(" ,pageContext,previous, next", pageContext, previous, next)
+
   return (
     <Layout>
       {/* 通过向<SEO> 组件传入 props，可以实时更改博文的元数据。 */}
@@ -13,10 +18,62 @@ export default ({ data }) => {
       {/* https://www.gatsbyjs.cn/docs/add-seo-component/ */}
       {/* https://github.com/nfl/react-helmet#example */}
       <SEO title={post.frontmatter.title} description={post.excerpt} />
-      <div>
-        <h1>{post.frontmatter.title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
-      </div>
+      <article>
+        <header>
+          <h1
+            style={{
+              marginTop: rhythm(1),
+              marginBottom: 0,
+            }}
+          >
+            {post.frontmatter.title}
+          </h1>
+          <p
+            style={{
+              ...scale(-1 / 5),
+              display: `block`,
+              marginBottom: rhythm(1),
+            }}
+          >
+            {post.frontmatter.date}
+          </p>
+        </header>
+        <section dangerouslySetInnerHTML={{ __html: post.html }} />
+        <hr
+          style={{
+            marginBottom: rhythm(1),
+          }}
+        />
+        <footer>Bio</footer>
+      </article>
+
+      <nav>
+        <ul
+          style={{
+            display: `flex`,
+            flexWrap: `wrap`,
+            justifyContent: `space-between`,
+            listStyle: `none`,
+            padding: 0,
+            marginLeft: 0,
+          }}
+        >
+          <li>
+            {previous && (
+              <Link to={previous.fields.slug} rel="prev">
+                ← {previous.frontmatter.title}
+              </Link>
+            )}
+          </li>
+          <li>
+            {next && (
+              <Link to={next.fields.slug} rel="next">
+                {next.frontmatter.title} →
+              </Link>
+            )}
+          </li>
+        </ul>
+      </nav>
     </Layout>
   )
 }
@@ -24,11 +81,14 @@ export default ({ data }) => {
 export const query = graphql`
   query($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
+      id
+      excerpt(pruneLength: 160)
       html
       frontmatter {
         title
+        date(formatString: "MMMM DD, YYYY")
+        description
       }
-      excerpt
     }
   }
 `

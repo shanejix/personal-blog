@@ -68,7 +68,7 @@ exports.createPages = async ({ graphql, actions }) => {
     throw result.errors
   }
 
-  console.log("result", JSON.stringify(result, null, 4))
+  // console.log("result", JSON.stringify(result, null, 4))
 
   // all tags
   const tags = result.data.allMarkdownRemark.group
@@ -115,14 +115,21 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 
   // create blog posts pages.
-  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+  posts.forEach((post, index) => {
+    const previous = index === posts.length - 1 ? null : posts[index + 1].node
+    const next = index === 0 ? null : posts[index - 1].node
+
+    console.log("previous,next", previous, next)
+
     createPage({
-      path: node.fields.slug,
+      path: post.node.fields.slug,
       component: blogPost,
       context: {
         // Data passed to context is available
         // in page queries as GraphQL variables.
-        slug: node.fields.slug,
+        slug: post.node.fields.slug,
+        previous,
+        next,
       },
     })
   })
