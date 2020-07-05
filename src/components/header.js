@@ -22,7 +22,11 @@ const Header = () => {
     `
   )
   return (
-    <header style={{ marginBottom: `1.5rem` }}>
+    <header
+      css={css`
+        margin-bottom: ${rhythm(0.5)};
+      `}
+    >
       <Link
         to="/"
         css={css`
@@ -32,8 +36,7 @@ const Header = () => {
       >
         <h3
           css={css`
-            margin-bottom: ${rhythm(2)};
-            display: inline;
+            display: inline-block;
             font-style: normal;
           `}
         >

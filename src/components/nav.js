@@ -19,7 +19,7 @@ const Nav = () => {
     <ul
       css={css`
         list-style: none;
-        float: right;
+        margin-left: 0;
       `}
     >
       <ListLink to="/">Home</ListLink>
