@@ -3,6 +3,7 @@ import { Link, graphql } from "gatsby"
 // https://www.npmjs.com/package/react-helmet
 import Helmet from "react-helmet"
 import Layout from "../components/layout"
+import CrayonsStory from "../components/crayonsStory"
 
 const postsPagination = props => {
   const { data } = props
@@ -21,9 +22,12 @@ const postsPagination = props => {
       />
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
+        const date = node.frontmatter.date
+        const slug = node.fields.slug
         // const tags = node.frontmatter.tags || []
         return (
           <div key={node.fields.slug}>
+            <CrayonsStory title={title} date={date} slug={slug} />
             <h3
               style={{
                 marginTop: "3rem",
