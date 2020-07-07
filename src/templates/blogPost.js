@@ -18,7 +18,16 @@ export default ({ data, pageContext, location }) => {
       {/* https://www.gatsbyjs.cn/docs/add-seo-component/ */}
       {/* https://github.com/nfl/react-helmet#example */}
       <SEO title={post.frontmatter.title} description={post.excerpt} />
-      <article>
+      <article
+        style={{
+          border: `1px solid black`,
+          borderRadius: `3px`,
+          marginBottom: `0.5rem`,
+          background: `white`,
+          fontSize: `1rem`,
+          padding: `0 1.5rem`,
+        }}
+      >
         <header>
           <h1
             style={{

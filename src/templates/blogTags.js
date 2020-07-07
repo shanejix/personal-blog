@@ -2,6 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Helmet from "react-helmet"
 import Layout from "../components/layout"
+import CrayonsStory from "../components/crayonsStory"
 
 const BlogTags = props => {
   const { data } = props
@@ -20,24 +21,11 @@ const BlogTags = props => {
       {/* <Bio /> */}
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
+        const date = node.frontmatter.date
+        const slug = node.fields.slug
+        const tags = node.frontmatter.tags || []
         return (
-          <div key={node.fields.slug}>
-            <h3
-              style={{
-                marginBottom: "0.24rem",
-              }}
-            >
-              <Link
-                className="css-title"
-                style={{ boxShadow: "none" }}
-                to={node.fields.slug}
-              >
-                {title}
-              </Link>
-            </h3>
-            <small className="css-date">{node.frontmatter.date}</small>
-            <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-          </div>
+          <CrayonsStory title={title} date={date} slug={slug} tags={tags} />
         )
       })}
       <div

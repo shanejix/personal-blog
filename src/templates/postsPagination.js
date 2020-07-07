@@ -24,29 +24,9 @@ const postsPagination = props => {
         const title = node.frontmatter.title || node.fields.slug
         const date = node.frontmatter.date
         const slug = node.fields.slug
-        // const tags = node.frontmatter.tags || []
+        const tags = node.frontmatter.tags || []
         return (
-          <div key={node.fields.slug}>
-            <CrayonsStory title={title} date={date} slug={slug} />
-            <h3
-              style={{
-                marginTop: "3rem",
-                marginBottom: "0.25rem",
-              }}
-            >
-              <Link
-                className="css-title"
-                style={{ boxShadow: "none" }}
-                to={node.fields.slug}
-              >
-                {title}
-                {/* //todo tags */}
-                {/* {tags.map(tag=>(<h3>{tag}</h3>))} */}
-              </Link>
-            </h3>
-            <small className="css-date">{node.frontmatter.date}</small>
-            <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-          </div>
+          <CrayonsStory title={title} date={date} slug={slug} tags={tags} />
         )
       })}
       <div
@@ -56,6 +36,7 @@ const postsPagination = props => {
           justifyContent: "space-between",
           listStyle: "none",
           padding: 0,
+          marginTop: "2rem",
         }}
       >
         <div>
