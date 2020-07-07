@@ -117,14 +117,14 @@ const CrayonsStory = ({ title, date, slug, tags }) => {
           {/* save */}
           <div>
             <small class="crayons-story__tertiary fs-xs mr-2">1 min read</small>
-            <button
+            {/* <button
               type="button"
               data-reactable-id="385970"
               aria-label="Save to reading list"
               title="Save to reading list"
             >
               <span>Fare</span>
-            </button>
+            </button> */}
           </div>
         </div>
       </div>
