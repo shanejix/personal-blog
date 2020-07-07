@@ -25,8 +25,8 @@ export default ({ data, pageContext, location }) => {
           marginBottom: `0.5rem`,
           background: `white`,
           fontSize: `1rem`,
-          padding: `0 1.5rem`,
-          paddingTop: `1rem`,
+          padding: `0 1rem`,
+          paddingTop: `0.5rem`,
         }}
       >
         <header>
