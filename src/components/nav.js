@@ -4,22 +4,21 @@ import { css } from "@emotion/core"
 // import { rhythm } from "../utils/typography"
 
 const ListLink = props => (
-  <li
+  <span
     css={css`
       display: inline-block;
       margin-right: 1rem;
     `}
   >
     <Link to={props.to}>{props.children}</Link>
-  </li>
+  </span>
 )
 
 const Nav = () => {
   return (
-    <ul
+    <div
       css={css`
-        list-style: none;
-        margin-left: 0.5rem;
+        margin-bottom: 1.5rem;
       `}
     >
       <ListLink to="/">Home</ListLink>
@@ -35,7 +34,7 @@ const Nav = () => {
           </a> */}
       <ListLink to="/about/">About</ListLink>
       <ListLink to="/contact/">Contact</ListLink>
-    </ul>
+    </div>
   )
 }
 
