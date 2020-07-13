@@ -13,4 +13,4 @@ import "typeface-merriweather"
 
 // gatsby-remark-prismjs
 // To load a theme, just require its CSS file in your gatsby-browser.js file, e.g.
-import "prismjs/themes/prism.css"
+// import "prismjs/themes/prism.css"

@@ -20,10 +20,10 @@ export default ({ data, pageContext, location }) => {
       <SEO title={post.frontmatter.title} description={post.excerpt} />
       <article
         style={{
-          border: `1px solid black`,
+          // border: `1px solid black`,
           borderRadius: `3px`,
           marginBottom: `0.5rem`,
-          background: `white`,
+          // background: `white`,
           fontSize: `1rem`,
           padding: `0 1rem`,
           paddingTop: `0.5rem`,
