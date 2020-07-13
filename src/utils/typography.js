@@ -14,6 +14,9 @@ Wordpress2016.overrideThemeStyles = () => ({
   hr: {
     background: "var(--hr)",
   },
+  ul: {
+    marginLeft: "1.45rem !important",
+  },
   "a.gatsby-resp-image-link": {
     boxShadow: "none",
   },
