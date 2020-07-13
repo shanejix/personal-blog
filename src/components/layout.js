@@ -12,7 +12,7 @@ export default ({ children }) => {
         margin-left: auto;
         margin-right: auto;
         padding: ${rhythm(1.5)} ${rhythm(3 / 4)};
-        max-width: 760px;
+        max-width: 42rem;
       `}
     >
       <Header />
