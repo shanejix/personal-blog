@@ -9,10 +9,13 @@ import Wordpress2016 from "typography-theme-wordpress-2016"
 
 Wordpress2016.overrideThemeStyles = () => ({
   a: {
-    color: "var(--textLink)",
+    color: "var(--pink)",
   },
   hr: {
     background: "var(--hr)",
+  },
+  ol: {
+    marginLeft: "1.45rem !important",
   },
   ul: {
     marginLeft: "1.45rem !important",
@@ -41,6 +44,7 @@ Wordpress2016.overrideThemeStyles = () => ({
     color: "inherit",
     borderLeftColor: "inherit",
     opacity: "0.8",
+    // marginLeft: "0",
   },
   "blockquote.translation": {
     fontSize: "1em",
