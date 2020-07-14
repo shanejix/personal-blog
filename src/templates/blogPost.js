@@ -1,8 +1,9 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
+import SEO from "../components/seo"
+import Bio from "../components/bio"
 
 export default ({ data, pageContext, location }) => {
   const post = data.markdownRemark
@@ -53,7 +54,7 @@ export default ({ data, pageContext, location }) => {
             marginBottom: rhythm(1),
           }}
         />
-        <footer>Bio</footer>
+        <Bio />
       </article>
 
       <nav>
