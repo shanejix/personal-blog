@@ -55,41 +55,41 @@ commit message 格式
 
 ## emojis type
 
-### one
+### one style
 
-➕ :heavy_plus_sign: when adding a file or implementing a feature
+- :heavy_plus_sign: when adding a file or implementing a feature
 
-🔨 :hammer: when fixing a bug or issue
+- :hammer: when fixing a bug or issue
 
-💚 :green_heart: when improving code or comments
+- :green_heart: when improving code or comments
 
-⚡ :zap: when improving performance
+- :zap: when improving performance
 
-📜 :scroll: when updating docs or readme
+- :scroll: when updating docs or readme
 
-🔑 :key: when dealing with security
+- :key: when dealing with security
 
-🔁 :repeat: when updating dependencies or data
+- :repeat: when updating dependencies or data
 
-✅ :white_check_mark: when a new release was built
+- :white_check_mark: when a new release was built
 
-👕 :shirt: when refactoring or removing linter warnings
+- :shirt: when refactoring or removing linter warnings
 
-❌ :x: when removing code or files
+- :x: when removing code or files
 
-### another
+### another style
 
-🎉 :tada: initial commit 🎉
+- :tada: initial commit
 
-🚀 :rocket: [Add] when implementing a new feature
+- :rocket: [Add] when implementing a new feature
 
-🔨 :hammer: [Fix] when fixing a bug or issue
+- :hammer: [Fix] when fixing a bug or issue
 
-🎨 :art: [Refactor] when refactor/improving code
+- :art: [Refactor] when refactor/improving code
 
-🚧 :construction: [WIP]
+- :construction: [WIP]
 
-📝 :pencil: [Minor] Some small updates
+- :pencil: [Minor] Some small updates
 
 ## tools
 
@@ -103,10 +103,10 @@ gitmoji-cli
 
 ## reference
 
-- https://gitmoji.carloscuesta.me/
+- [https://gitmoji.carloscuesta.me/](https://gitmoji.carloscuesta.me/)
 
-- https://github.com/carloscuesta/gitmoji-cli
+- [https://github.com/carloscuesta/gitmoji-cli](https://github.com/carloscuesta/gitmoji-cli)
 
-- https://www.conventionalcommits.org/en/v1.0.0/
+- [https://www.conventionalcommits.org/en/v1.0.0/](https://www.conventionalcommits.org/en/v1.0.0/)
 
-- https://udacity.github.io/git-styleguide/
+- [https://udacity.github.io/git-styleguide/](https://udacity.github.io/git-styleguide/)
