@@ -1,5 +1,5 @@
 ---
-title: 用vanillajs实现日期控件
+title: 用VanillaJS实现日期控件
 date: '2019-09-03T22:12:03.284Z'
 tags: ["javascript"]
 ---

@@ -1,5 +1,5 @@
 ---
-title: (译)13 useful JavaScript array tips and tricks you should know
+title: (译)13 Useful JavaScript Array Tips And Tricks You Should Know
 date: '2019-11-07T22:12:03.284Z'
 tags: ["javascript"]
 ---
