@@ -1,6 +1,6 @@
 ---
 title: Good Git Commit Message
-date: "2020-08-6T20:23:30.284Z"
+date: "2020-08-06T20:23:30.284Z"
 tags: ["git"]
 ---
 
