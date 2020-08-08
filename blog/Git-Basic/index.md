@@ -19,31 +19,83 @@ tags: ["git"]
 
 ### basic git commands
 
-- `git init | git init [folder]`
+```bash
 
-- `git clone [repo url]`
+    git init | git init [folder]
+    
+```
 
-- `git add [directory | file]`
+```bash
 
-- `git commit -m "[message]"`
+    git clone [repo url]
+    
+```
 
-- `git push`
+```bash
 
-- `git status`
+    git add [directory | file]
+    
+```
 
-- `git log`
+```bash
 
-- `git diff`
+    git commit -m "[message]"
+    
+```
 
-- `git pull`
+```bash
 
-- `git fetch`
+    git push
+    
+```
 
-- `git config -global user.email [user_email]`
+```bash
 
-- `git config -global user.name [user_name]`
+    git status
+    
+```
 
-- `git config --global --edit`
+```bash
+
+    git log
+    
+```
+
+```bash
+
+    git diff
+    
+```
+
+```bash
+
+    git pull
+    
+```
+
+```bash
+
+    git fetch
+    
+```
+
+```bash
+
+    git config -global user.email [user_email]
+    
+```
+
+```bash
+
+    git config -global user.name [user_name]
+    
+```
+
+```bash
+
+    git config --global --edit
+    
+```
 
 ### git log
 
@@ -118,7 +170,7 @@ git restore <filename>
 
 ### reference
 
-[https://dev.to/unseenwizzard/learn-git-concepts-not-commands-4gjc](https://dev.to/unseenwizzard/learn-git-concepts-not-commands-4gjc)
-[https://backlog.com/git-tutorial/](https://backlog.com/git-tutorial/)
-[https://backlog.com/git-tutorial/cn/contents/](https://backlog.com/git-tutorial/cn/contents/)
-[https://github.com/pcottle/learnGitBranching](https://github.com/pcottle/learnGitBranching)
+- [https://dev.to/unseenwizzard/learn-git-concepts-not-commands-4gjc](https://dev.to/unseenwizzard/learn-git-concepts-not-commands-4gjc)
+- [https://backlog.com/git-tutorial/](https://backlog.com/git-tutorial/)
+- [https://backlog.com/git-tutorial/cn/contents/](https://backlog.com/git-tutorial/cn/contents/)
+- [https://github.com/pcottle/learnGitBranching](https://github.com/pcottle/learnGitBranching)
