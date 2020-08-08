@@ -1,6 +1,6 @@
 ---
 title: Git Basic
-date: "2020-07-15T23:23:30.284Z"
+date: "2018-12-15T23:23:30.284Z"
 tags: ["git"]
 ---
 
@@ -22,79 +22,79 @@ tags: ["git"]
 ```bash
 
     git init | git init [folder]
-    
+
 ```
 
 ```bash
 
     git clone [repo url]
-    
+
 ```
 
 ```bash
 
     git add [directory | file]
-    
+
 ```
 
 ```bash
 
     git commit -m "[message]"
-    
+
 ```
 
 ```bash
 
     git push
-    
+
 ```
 
 ```bash
 
     git status
-    
+
 ```
 
 ```bash
 
     git log
-    
+
 ```
 
 ```bash
 
     git diff
-    
+
 ```
 
 ```bash
 
     git pull
-    
+
 ```
 
 ```bash
 
     git fetch
-    
+
 ```
 
 ```bash
 
     git config -global user.email [user_email]
-    
+
 ```
 
 ```bash
 
     git config -global user.name [user_name]
-    
+
 ```
 
 ```bash
 
     git config --global --edit
-    
+
 ```
 
 ### git log
