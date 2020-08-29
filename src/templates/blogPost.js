@@ -12,7 +12,6 @@ const systemFont = `system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     "Droid Sans", "Helvetica Neue", sans-serif`
 
 export default ({ data, pageContext }) => {
-  console.log("data", data)
   const post = data.markdownRemark
   const { edges } = data.allMarkdownRemark
   const { previous, next } = pageContext

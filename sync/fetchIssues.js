@@ -20,7 +20,7 @@ module.exports = async () => {
       `${GITHUB_BASE_URL}/repos/${github_username}/${github_rep}/issues`
     )
 
-    console.log("posts", posts)
+    // console.log("posts", posts)
 
     // 过滤issues
     posts = posts.filter(

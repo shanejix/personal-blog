@@ -38,7 +38,8 @@ class Layout extends React.Component {
         `}
       >
         <Header />
-        {this.state.theme !== null ? (
+        {/* {this.state.theme !== null ? ( */}
+        {null ? (
           <Toggle
             icons={{
               checked: (
@@ -67,7 +68,7 @@ class Layout extends React.Component {
           />
         ) : (
           // <div style={{ height: "24px" }} />
-          <div style={{ height: "24px" }}>xx</div>
+          <div></div>
         )}
         <main>{children}</main>
         <Footer />
