@@ -20,13 +20,20 @@ const postsPagination = props => {
         meta={[{ name: "description", content: siteDescription }]}
         title={siteTitle}
       />
-      {posts.map(({ node }) => {
+      {posts.map((post, idx) => {
+        const { node } = post
         const title = node.frontmatter.title || node.fields.slug
         const date = node.frontmatter.date
         const slug = node.fields.slug
         const tags = node.frontmatter.tags || []
         return (
-          <CrayonsStory title={title} date={date} slug={slug} tags={tags} />
+          <CrayonsStory
+            key={idx}
+            title={title}
+            date={date}
+            slug={slug}
+            tags={tags}
+          />
         )
       })}
       <div

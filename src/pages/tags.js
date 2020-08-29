@@ -19,9 +19,8 @@ const TagsPage = ({
   <div>
     <Layout title="Gatsby Blog Starter" pageName="Tags">
       <ul>
-        {group.map(tag => (
-          <li key={tag.fieldValue}>
-            {console.log("tag", tag)}
+        {group.map((tag, idx) => (
+          <li key={idx}>
             {/* <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}> */}
             <Link to={`/tags/${tag.fieldValue}/`}>
               {tag.fieldValue} ({tag.totalCount})

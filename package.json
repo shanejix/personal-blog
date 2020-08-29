@@ -5,8 +5,9 @@
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
+    "sync":"node sync/index.js",
+    "build": "npm run sync && gatsby build",
+    "develop": "npm run sync && gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
@@ -15,6 +16,7 @@
   },
   "dependencies": {
     "@emotion/core": "^10.0.28",
+    "axios": "^0.20.0",
     "gatsby": "^2.22.15",
     "gatsby-plugin-emotion": "^4.3.4",
     "gatsby-plugin-manifest": "^2.4.11",
@@ -42,6 +44,7 @@
     "typography-theme-wordpress-2016": "^0.16.19"
   },
   "devDependencies": {
+    "ora": "^5.0.0",
     "prettier": "2.0.5"
   },
   "repository": {

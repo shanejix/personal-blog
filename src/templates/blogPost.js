@@ -9,7 +9,7 @@ export default ({ data, pageContext, location }) => {
   const post = data.markdownRemark
   const { previous, next } = pageContext
 
-  console.log(" ,pageContext,previous, next", pageContext, previous, next)
+  // console.log(" ,pageContext,previous, next", pageContext, previous, next)
 
   return (
     <Layout>
@@ -97,7 +97,6 @@ export const query = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
-        description
       }
     }
   }
