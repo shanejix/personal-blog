@@ -24,6 +24,8 @@ const BlogTags = props => {
         const date = node.frontmatter.date
         const slug = node.fields.slug
         const tags = node.frontmatter.tags || []
+        const comments = node.frontmatter.comments
+        const timeToRead = node.timeToRead
         return (
           <CrayonsStory
             key={idx}
@@ -31,6 +33,8 @@ const BlogTags = props => {
             date={date}
             slug={slug}
             tags={tags}
+            comments={comments}
+            timeToRead={timeToRead}
           />
         )
       })}
@@ -93,7 +97,9 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             tags
+            comments
           }
+          timeToRead
         }
       }
     }

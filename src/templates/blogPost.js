@@ -1,15 +1,31 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
+import Panel from "../components/panel"
 import { rhythm, scale } from "../utils/typography"
 import SEO from "../components/seo"
 import Bio from "../components/bio"
+import { formatReadingTime } from "../utils/helper"
 
-export default ({ data, pageContext, location }) => {
+const systemFont = `system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif`
+
+export default ({ data, pageContext }) => {
+  console.log("data", data)
   const post = data.markdownRemark
+  const { edges } = data.allMarkdownRemark
   const { previous, next } = pageContext
 
-  // console.log(" ,pageContext,previous, next", pageContext, previous, next)
+  let timeToRead
+  edges.forEach(({ node }) => {
+    if (node.id === post.id) {
+      timeToRead = node.timeToRead
+    }
+  })
+
+  let postUrl = post.frontmatter.url
+  postUrl = "https://" + postUrl.slice(12).replace(/\/repos/g, "")
 
   return (
     <Layout>
@@ -43,11 +59,26 @@ export default ({ data, pageContext, location }) => {
               ...scale(-1 / 5),
               display: `block`,
               marginBottom: rhythm(1),
+              marginTop: rhythm(0.5),
             }}
           >
-            {post.frontmatter.date}
+            <span>create:{post.frontmatter.date}</span>
+            &nbsp;&nbsp;
+            <span>update:{post.frontmatter.update}</span>
+            &nbsp;&nbsp;
+            <span>
+              {" • "}
+              {formatReadingTime(timeToRead)}
+            </span>
           </p>
         </header>
+
+        <div className="translations">
+          <Panel style={{ fontFamily: systemFont }}>
+            原文链接:&nbsp;&nbsp;
+            <a href={postUrl}>{postUrl}</a>
+          </Panel>
+        </div>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr
           style={{
@@ -90,6 +121,14 @@ export default ({ data, pageContext, location }) => {
 
 export const query = graphql`
   query($slug: String!) {
+    allMarkdownRemark {
+      edges {
+        node {
+          id
+          timeToRead
+        }
+      }
+    }
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       excerpt(pruneLength: 160)
@@ -97,6 +136,8 @@ export const query = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        update(formatString: "MMMM DD, YYYY")
+        url
       }
     }
   }

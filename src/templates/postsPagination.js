@@ -24,15 +24,24 @@ const postsPagination = props => {
         const { node } = post
         const title = node.frontmatter.title || node.fields.slug
         const date = node.frontmatter.date
+        const update = node.frontmatter.update
         const slug = node.fields.slug
         const tags = node.frontmatter.tags || []
+        const url = node.frontmatter.url || ""
+        const comments = node.frontmatter.comments
+        const timeToRead = node.timeToRead
+
         return (
           <CrayonsStory
             key={idx}
             title={title}
             date={date}
+            update={update}
             slug={slug}
             tags={tags}
+            postUrl={url}
+            comments={comments}
+            timeToRead={timeToRead}
           />
         )
       })}
@@ -91,9 +100,13 @@ export const pageQuery = graphql`
           }
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
+            update(formatString: "MMMM DD, YYYY")
             title
             tags
+            url
+            comments
           }
+          timeToRead
         }
       }
     }
