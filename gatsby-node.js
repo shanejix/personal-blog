@@ -31,11 +31,11 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
   // blog分页模板
-  const postsPagination = path.resolve("./src/templates/postsPagination.js")
+  const postsPagination = path.resolve("./src/templates/posts-pagination.js")
   // blogPost模板
-  const blogPost = path.resolve(`./src/templates/blogPost.js`)
+  const blogPost = path.resolve(`./src/templates/blog-post.js`)
   // blog tags 模板
-  const blogTags = path.resolve("./src/templates/blogTags.js")
+  const blogTags = path.resolve("./src/templates/blog-tags.js")
 
   // **Note:** The graphql function call returns a Promise
   // see: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise for more info

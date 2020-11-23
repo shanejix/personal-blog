@@ -1,7 +1,7 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
-import Panel from "../components/panel"
+// import Panel from "../components/panel"
 import { rhythm, scale } from "../utils/typography"
 import SEO from "../components/seo"
 import Bio from "../components/bio"
@@ -62,8 +62,8 @@ export default ({ data, pageContext }) => {
           >
             <span>create:{post.frontmatter.date}</span>
             &nbsp;&nbsp;
-            <span>update:{post.frontmatter.update}</span>
-            &nbsp;&nbsp;
+            {/* <span>update:{post.frontmatter.update}</span>
+            &nbsp;&nbsp; */}
             <span>
               {" • "}
               {formatReadingTime(timeToRead)}
@@ -71,20 +71,41 @@ export default ({ data, pageContext }) => {
           </p>
         </header>
 
-        <div className="translations">
+        {/* <div className="translations">
           <Panel style={{ fontFamily: systemFont }}>
             原文链接:&nbsp;&nbsp;
             <a href={postUrl}>{postUrl}</a>
           </Panel>
-        </div>
+        </div> */}
+
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
-        <hr
+
+        <footer
           style={{
-            marginBottom: rhythm(1),
+            marginTop: rhythm(2.5),
           }}
-        />
-        <Bio />
+        >
+          <p>
+            {/* <a href={postUrl} target="_blank" rel="noopener noreferrer">
+              Discuss on Twitter
+            </a> */}
+            {/* {` • `} */}
+            <a href={postUrl} target="_blank" rel="noopener noreferrer">
+              Discuss on GitHub
+            </a>
+            {` • `}
+          </p>
+        </footer>
+
       </article>
+
+      <hr
+        style={{
+          marginBottom: rhythm(1),
+        }}
+      />
+
+      <Bio />
 
       <nav>
         <ul

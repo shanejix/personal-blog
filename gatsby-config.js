@@ -42,8 +42,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `blog`,
-        path: `${__dirname}/blog`,
+        name: `posts`,
+        path: `${__dirname}/posts`,
       },
     },
     // Markdown 文件的数据转换插件

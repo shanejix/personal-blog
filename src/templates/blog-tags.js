@@ -1,17 +1,15 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-// https://www.npmjs.com/package/react-helmet
 import Helmet from "react-helmet"
 import Layout from "../components/layout"
-import CrayonsStory from "../components/crayonsStory"
+import CrayonsStory from "../components/crayons-story"
 
-const postsPagination = props => {
+const BlogTags = props => {
   const { data } = props
-  const { totalPage, currentPage } = props.pageContext
-
   const siteTitle = data.site.siteMetadata.title
   const siteDescription = data.site.siteMetadata.description
   const posts = data.allMarkdownRemark.edges
+  const { totalPage, currentPage, tag } = props.pageContext
 
   return (
     <Layout>
@@ -24,22 +22,17 @@ const postsPagination = props => {
         const { node } = post
         const title = node.frontmatter.title || node.fields.slug
         const date = node.frontmatter.date
-        const update = node.frontmatter.update
         const slug = node.fields.slug
         const tags = node.frontmatter.tags || []
-        const url = node.frontmatter.url || ""
         const comments = node.frontmatter.comments
         const timeToRead = node.timeToRead
-
         return (
           <CrayonsStory
             key={idx}
             title={title}
             date={date}
-            update={update}
             slug={slug}
             tags={tags}
-            postUrl={url}
             comments={comments}
             timeToRead={timeToRead}
           />
@@ -52,13 +45,14 @@ const postsPagination = props => {
           justifyContent: "space-between",
           listStyle: "none",
           padding: 0,
-          marginTop: "2rem",
         }}
       >
         <div>
           {currentPage - 1 > 0 && (
             <Link
-              to={"/posts/" + (currentPage - 1 === 1 ? "" : currentPage - 1)}
+              to={
+                `/tags/${tag}/` + (currentPage - 1 === 1 ? "" : currentPage - 1)
+              }
               rel="prev"
             >
               ← 上一页
@@ -67,7 +61,7 @@ const postsPagination = props => {
         </div>
         <div>
           {currentPage + 1 <= totalPage && (
-            <Link to={"/posts/" + (currentPage + 1)} rel="next">
+            <Link to={`/tags/${tag}/` + (currentPage + 1)} rel="next">
               下一页 →
             </Link>
           )}
@@ -77,10 +71,10 @@ const postsPagination = props => {
   )
 }
 
-export default postsPagination
+export default BlogTags
 
 export const pageQuery = graphql`
-  query($skip: Int!, $limit: Int!) {
+  query($tag: String!, $skip: Int!, $limit: Int!) {
     site {
       siteMetadata {
         title
@@ -89,6 +83,7 @@ export const pageQuery = graphql`
     }
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { tags: { in: [$tag] } } }
       limit: $limit
       skip: $skip
     ) {
@@ -100,10 +95,8 @@ export const pageQuery = graphql`
           }
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
-            update(formatString: "MMMM DD, YYYY")
             title
             tags
-            url
             comments
           }
           timeToRead
