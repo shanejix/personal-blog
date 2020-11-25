@@ -1,18 +1,18 @@
 const fs = require("fs")
 const path = require("path")
 const axios = require("axios")
-const { rebuild } = require("./utils")
+// const { rebuild } = require("./utils")
 
 // https://api.github.com/repos/shanejixx/shanejixx.github.io/issues
 const github_username = "shanejixx"
 const github_rep = "shanejixx.github.io"
 
 const GITHUB_BASE_URL = "https://api.github.com"
-const mdDir = path.resolve(__dirname, "../blog")
+const mdDir = path.resolve(__dirname, "../posts")
 
 module.exports = async () => {
   // 清空md文件夹
-  rebuild(mdDir)
+  // rebuild(mdDir)
 
   try {
     // 请求github博客内容
@@ -27,11 +27,13 @@ module.exports = async () => {
       post => post.state === "open" && post.author_association === "OWNER"
     )
 
-    // 创建md文件
+    // 按照title创建文件夹和index.md
     posts.forEach(post => {
       const postDir = `${mdDir}/${post.title}`
 
-      fs.mkdirSync(postDir)
+      if(!fs.existsSync(postDir)){
+        fs.mkdirSync(postDir)
+      }
 
       const body = injectHeader(post)
       fs.writeFileSync(path.join(postDir, `index.md`), body, "utf8")
