@@ -3,7 +3,7 @@ import { css } from "@emotion/core"
 import { rhythm } from "../utils/typography"
 import Header from "../components/header"
 import Footer from "../components/footer"
-import Toggle from "./Toggle"
+import Toggle from "./toggle"
 
 import sun from "../assets/sun.png"
 import moon from "../assets/moon.png"
