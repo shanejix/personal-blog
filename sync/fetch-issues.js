@@ -31,12 +31,12 @@ module.exports = async () => {
     posts.forEach(post => {
       const postDir = `${mdDir}/${post.title}`
 
-      if(!fs.existsSync(postDir)){
+      if (!fs.existsSync(postDir)) {
         fs.mkdirSync(postDir)
+        const body = injectHeader(post)
+        fs.writeFileSync(path.join(postDir, `index.md`), body, "utf8")
       }
 
-      const body = injectHeader(post)
-      fs.writeFileSync(path.join(postDir, `index.md`), body, "utf8")
     })
 
     // return posts
