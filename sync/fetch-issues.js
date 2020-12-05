@@ -30,9 +30,13 @@ module.exports = async () => {
     // 按照title创建文件夹和index.md
     posts.forEach(post => {
       const postDir = `${mdDir}/${post.title}`
+      const postIndex = `${mdDir}/${post.title}/index.md`
 
       if (!fs.existsSync(postDir)) {
         fs.mkdirSync(postDir)
+      }
+
+      if (!fs.existsSync(postIndex)) {
         const body = injectHeader(post)
         fs.writeFileSync(path.join(postDir, `index.md`), body, "utf8")
       }
