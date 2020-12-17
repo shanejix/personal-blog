@@ -2,7 +2,6 @@ import React from "react"
 import { Link } from "gatsby"
 import { css } from "@emotion/core"
 import { formatReadingTime } from "../utils/helper"
-// import increasePic from "../assets/increase.png"
 
 const CrayonsStory = ({
   title,
@@ -14,39 +13,25 @@ const CrayonsStory = ({
   comments,
   timeToRead,
 }) => (
-    // crayons-story
     <div
       css={css`
-      border: 1px solid black;
+      border: 1px solid var(--textNormal);
       border-radius: 3px;
       margin-bottom: 0.5rem;
-      background: white;
+      background: var(--bg);
       font-size: 1rem;
     `}
     >
-      {/* CrayonsStory body */}
       <div
         css={css`
         padding: 16px;
       `}
       >
-        {/* crayons-story top */}
         <div>
           <time className="css-date">{date}</time>
-          {/* {update && (
-          <img
-            src={increasePic}
-            css={css`
-              width: 16px;
-              height: 16px;
-              margin: 0 5px;
-            `}
-          />
-        )} */}
+
         </div>
-        {/* crayons-story indention */}
         <div>
-          {/* crayons-story titel */}
           <h3
             style={{
               marginTop: "1rem",
@@ -64,7 +49,6 @@ const CrayonsStory = ({
           align-items: center;
         `}
         >
-          {/* crayons-story tags */}
           {tags.map((tag, idx) => (
             <h4
               key={idx}
@@ -85,7 +69,6 @@ const CrayonsStory = ({
           margin-top: 0.5rem;
         `}
         >
-          {/* crayons-story bottom */}
           <div
             css={css`
             display: flex;
@@ -93,7 +76,6 @@ const CrayonsStory = ({
             align-items: center;
           `}
           >
-            {/* details */}
             {/* <div
               css={css`
               display: flex;
@@ -137,20 +119,11 @@ const CrayonsStory = ({
               <span>&nbsp;comments</span>
             </div>
           </div>
-          {/* save */}
           <div>
             <small className="crayons-story__tertiary fs-xs mr-2">
               {" • "}
               {formatReadingTime(timeToRead)}
             </small>
-            {/* <button
-              type="button"
-              data-reactable-id="385970"
-              aria-label="Save to reading list"
-              title="Save to reading list"
-            >
-              <span>Fare</span>
-            </button> */}
           </div>
         </div>
       </div>
