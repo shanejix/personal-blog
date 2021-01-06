@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@emotion/core": "^10.0.28",
-    "axios": "^0.20.0",
+    "axios": "^0.21.1",
     "gatsby": "^2.22.15",
     "gatsby-plugin-emotion": "^4.3.4",
     "gatsby-plugin-manifest": "^2.4.11",
