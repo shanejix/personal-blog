@@ -7,8 +7,8 @@
 module.exports = {
   // 页面元数据（metadata）:帮助 Google 之类的搜索引擎理解页面内容，决定什么时候出现在搜索结果里的关键。
   siteMetadata: {
-    title: `ShaneJixx`,
-    author: `shanejixx`,
+    title: `ShaneJix`,
+    author: `shanejix`,
     description: `A simple description about author lots...`,
   },
   /* Your site config here */

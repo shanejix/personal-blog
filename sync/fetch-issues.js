@@ -3,9 +3,9 @@ const path = require("path")
 const axios = require("axios")
 const { rebuild } = require("./utils")
 
-// https://api.github.com/repos/shanejixx/shanejixx.github.io/issues
-const github_username = "shanejixx"
-const github_rep = "shanejixx.github.io"
+// https://api.github.com/repos/shanejix/shanejix.github.io/issues
+const github_username = "shanejix"
+const github_rep = "shanejix.github.io"
 
 const GITHUB_BASE_URL = "https://api.github.com"
 const mdDir = path.resolve(__dirname, "../posts")
