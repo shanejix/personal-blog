@@ -107,31 +107,30 @@ export default ({ data, pageContext }) => {
       <Bio />
 
       <nav>
-        <ul
+        <div
           style={{
             display: `flex`,
             flexWrap: `wrap`,
             justifyContent: `space-between`,
-            listStyle: `none`,
             padding: 0,
             marginLeft: 0,
           }}
         >
-          <li>
+          <div>
             {next && (
               <Link to={next.fields.slug} rel="next">
                 ← {next.frontmatter.title}
               </Link>
             )}
-          </li>
-          <li>
+          </div>
+          <div>
             {previous && (
               <Link to={previous.fields.slug} rel="prev">
                 {previous.frontmatter.title}→
               </Link>
             )}
-          </li>
-        </ul>
+          </div>
+        </div>
       </nav>
     </Layout>
   )
