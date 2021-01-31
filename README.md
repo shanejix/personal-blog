@@ -1,5 +1,5 @@
 <h1 align="center">
-  Gatsby Sync Issues Blog 
+  Gatsby Issues Blog 
 </h1>
 
 <h2 align="center">
