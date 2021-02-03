@@ -26,9 +26,9 @@ module.exports = async () => {
     )
 
     // 过滤issues
-    posts = posts.filter(
-      post => post.state === "open" && post.author_association === "OWNER"
-    )
+    // posts = posts.filter(
+    //   post => post.state === "open" && post.author_association === "OWNER"
+    // )
 
     // 按照title创建文件夹和index.md
     posts.forEach(post => {
@@ -69,8 +69,6 @@ function flatTags(labels) {
 
 function injectHeader(post) {
   // 为了保证输出的格式，引号内部的代码不要格式
-
-  // console.log("post.labels", post.labels)
 
   const header = `---
   title: '${post.title}'
