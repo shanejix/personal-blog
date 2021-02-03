@@ -38,7 +38,6 @@ module.exports = async () => {
       const postDir = `${mdDir}/${post.title}`
       const postFilePath = path.join(postDir, `${post.title}.md`);
 
-      console.log('postImgUrls', postImgUrls);
       // make dirtory
       fs.mkdirSync(postDir);
       // make images

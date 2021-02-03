@@ -2,13 +2,13 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import Nav from "../components/nav"
-import Bio from "../components/bio"
+import Avatar from "../components/avatar"
 
 export default ({ data }) => {
   return (
     <Layout>
+      <Avatar />
       <Nav />
-      <Bio />
     </Layout>
   )
 }

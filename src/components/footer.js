@@ -6,10 +6,11 @@ const Footer = () => {
   return (
     <footer
       css={css`
-        margin: ${rhythm(1.2)} 0;
+        margin: ${rhythm(1.2)} auto;
+        text-align:center;
       `}
     >
-      © {new Date().getFullYear()}, Built with
+      © 2019 - {new Date().getFullYear()}, Built with
       {` `}
       <a href="https://www.gatsbyjs.org">Gatsby</a>
     </footer>

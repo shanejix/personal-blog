@@ -6,7 +6,8 @@ body {
 }
 
 body.light {
-  --bg: #ffffff;
+  /* --bg: #ffffff; */
+  --bg: #F5F5D5;
   --bg-secondary: rgb(249, 250, 251);
   --header: var(--pink);
   --textNormal: #222;
